@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel = "stylesheet" href = "static/css/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Mobile Phone Predictor</title>
+  </head>
+  <body class = "bg-dark">
+    <div class = "container">
+      <div class ="row">
+        <div class = "card mt-50" style="width:100% ; height: 100%">
+          <div class="card-header">
+            <div class="col-12" style="text-align:center">
+              <h1>Mobile Phone Price Predictor</h1>
+            </div>
+          </div>
+          <div class = "card-body">
+            <form method = "post" accept-charset="utf-8">
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>Select Brand</b></label>
+                <select class = "selectpicker form-control" id="brands" name="brands" required="1">
+
+                  {% for brand in brands %}
+
+                    <option value = "{{ brand }}">{{ brand }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>Select Model</b></label>
+                <select class = "selectpicker form-control" id="models" name="models" required="1">
+                  {% for model in models %}
+
+                    <option value = "{{ model }}">{{ model }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>GPRS</b></label>
+                <select class = "selectpicker form-control" id="gprs" name="gprs" required="1">
+                  {% for gpr in gprs %}
+
+                    <option value = "{{ gpr }}">{{ gpr }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>EDGE</b></label>
+                <select class = "selectpicker form-control" id="edge" name="edge" required="1">
+                  {% for edg in edge %}
+
+                    <option value = "{{ edg }}">{{ edg }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>Status</b></label>
+                <select class = "selectpicker form-control" id="stats" name="stats" required="1">
+                  {% for stat in stats %}
+
+                    <option value = "{{ stat }}">{{ stat }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>SIM</b></label>
+                <select class = "selectpicker form-control" id="sim" name="sim" required="1">
+                  {% for si in sim %}
+
+                    <option value = "{{ si }}">{{ si }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>DISPLAY</b></label>
+                <select class = "selectpicker form-control" id="distype" name="distype" required="1">
+                  {% for dis in distype %}
+
+                    <option value = "{{ dis }}">{{ dis }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>DISPLAY RES</b></label>
+                <select class = "selectpicker form-control" id="disres" name="disres" required="1">
+                  {% for disr in disres %}
+
+                    <option value = "{{ disr }}">{{ disr }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>OS</b></label>
+                <select class = "selectpicker form-control" id="oss" name="oss" required="1">
+                  {% for os in oss %}
+
+                    <option value = "{{ os }}">{{ os }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>CPU</b></label>
+                <select class = "selectpicker form-control" id="cpus" name="cpus" required="1">
+                  {% for cp in cpus %}
+
+                    <option value = "{{ cp }}">{{ cp }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>Chipset</b></label>
+                <select class = "selectpicker form-control" id="chipsets" name="chipsets" required="1">
+                  {% for chi in chipsets %}
+
+                    <option value = "{{ chi }}">{{ chi }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>GPU</b></label>
+                <select class = "selectpicker form-control" id="gpu" name="gpu" required="1">
+                  {% for gp in gpu %}
+
+                    <option value = "{{ gp }}">{{ gp }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>Memory Card</b></label>
+                <select class = "selectpicker form-control" id="mcard" name="mcard" required="1">
+                  {% for mca in mcard %}
+
+                    <option value = "{{ mca }}">{{ mca }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>Int.Memory</b></label>
+                <select class = "selectpicker form-control" id="intmem" name="intmem" required="1">
+                  {% for imem in inmem %}
+
+                    <option value = "{{ imem }}">{{ imem }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>RAM</b></label>
+                <select class = "selectpicker form-control" id="ram" name="ram" required="1">
+                  {% for ra in ram %}
+
+                    <option value = "{{ ra }}">{{ ra }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>Primary Camera</b></label>
+                <select class = "selectpicker form-control" id="pcams" name="pcams" required="1">
+                  {% for pc in pcams %}
+
+                    <option value = "{{ pc }}">{{ pc }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>Secondary Camera</b></label>
+                <select class = "selectpicker form-control" id="scams" name="scams" required="1">
+                  {% for sc in scams %}
+
+                    <option value = "{{ sc }}">{{ sc }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>loud speaker</b></label>
+                <select class = "selectpicker form-control" id="ls" name="ls" required="1">
+                  {% for lss in ls %}
+
+                    <option value = "{{ lss }}">{{ lss }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>audio jack</b></label>
+                <select class = "selectpicker form-control" id="aj" name="aj" required="1">
+                  {% for ajj in aj %}
+
+                    <option value = "{{ ajj }}">{{ ajj }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>WLAN</b></label>
+                <select class = "selectpicker form-control" id="wlan" name="wlan" required="1">
+                  {% for wl in wlan %}
+
+                    <option value = "{{ wl }}">{{ wl }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>bluetooth</b></label>
+                <select class = "selectpicker form-control" id="blt" name="blt" required="1">
+                  {% for bl in blt %}
+
+                    <option value = "{{ bl }}">{{ bl }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>GPS</b></label>
+                <select class = "selectpicker form-control" id="gps" name="gps" required="1">
+                  {% for gp in gps %}
+
+                    <option value = "{{ gp }}">{{ gp }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>NFC</b></label>
+                <select class = "selectpicker form-control" id="nfc" name="nfc" required="1">
+                  {% for nf in nfc %}
+
+                    <option value = "{{ nf }}">{{ nf }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>radio</b></label>
+                <select class = "selectpicker form-control" id="radio" name="radio" required="1">
+                  {% for rad in radio %}
+
+                    <option value = "{{ rad }}">{{ rad }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>USB</b></label>
+                <select class = "selectpicker form-control" id="usb" name="usb" required="1">
+                  {% for us in usb %}
+
+                    <option value = "{{ us }}">{{ us }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>colors</b></label>
+                <select class = "selectpicker form-control" id="col" name="col" required="1">
+                  {% for co in col %}
+
+                    <option value = "{{ co }}">{{ co }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>Sensors</b></label>
+                <select class = "selectpicker form-control" id="sen" name="sen" required="1">
+                  {% for se in sen %}
+
+                    <option value = "{{ se }}">{{ se }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class = "col-10 form group" style="text-align:center">
+                <label><b>Battery</b></label>
+                <select class = "selectpicker form-control" id="batt" name="batt" required="1">
+                  {% for bat in batt %}
+
+                    <option value = "{{ bat }}">{{ bat }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <button class=" btn btn-primary form-control" onclick="send_data()">Predict Price</button>
+            </form>
+            <br>
+            <div class = "row">
+              <div class = "col-12 " style = "text-align : center">
+                <h3><span id = "prediction"></span></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function form_handler(event)
+      {
+        event.preventDefault();
+      }
+      function send_data()
+      {
+        document.querySelector('form').addEventListener('submit' , form_handler);
+
+        var fd = new FormData(document.querySelector('form'));
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST' , '/predict' , true);
+        document.getElementById("prediction").innerHTML="Wait! Predicting Price....";
+
+        xhr.onreadystatechange = function()
+        {
+          if(xhr.readyState == XMLHttpRequest.DONE)
+          {
+          document.getElementById("prediction").innerHTML = "Prediction: EUR " + xhr.responseText;
+          }
+        }
+        xhr.onload = function(){};
+        xhr.send(fd);
+        }
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

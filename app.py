@@ -1,0 +1,80 @@
+import pickle
+from sklearn.linear_model import LinearRegression
+from flask import Flask , render_template , request
+import pandas as pd
+import pickle
+app1 = Flask(__name__)
+
+model = pickle.load(open("LinearRegModel20.pkl",'rb'))
+mob = pd.read_csv('Final_phone16.csv')
+@app1.route('/')
+def index():
+    brands = sorted(mob['brand'].unique())
+    models = sorted(mob['model'].unique())
+    gprs = sorted(mob['GPRS'].unique())
+    edge = sorted(mob['EDGE'].unique())
+    stats = sorted(mob['status'].unique())
+    sim = sorted(mob['SIM'].unique())
+    distype = sorted(mob['display_type'].unique())
+    disres = mob['display_resolution'].unique()
+    oss = sorted(mob['OS'].unique())
+    cpus = sorted(mob['CPU'].unique())
+    chipsets = sorted(mob['Chipset'].unique())
+    gpu = sorted(mob['GPU'].unique())
+    mcard = sorted(mob['memory_card'].unique())
+    inmem = sorted(mob['internal_memory'].unique())
+    ram = mob['RAM'].unique()
+    pcams = mob['primary_camera'].unique()
+    scams = mob['secondary_camera'].unique()
+    ls = mob['loud_speaker'].unique()
+    aj = mob['audio_jack'].unique()
+    wlan = mob['WLAN'].unique()
+    blt = mob['bluetooth'].unique()
+    gps = mob['GPS'].unique()
+    nfc = mob['NFC'].unique()
+    radio = mob['radio'].unique()
+    usb = mob['USB'].unique()
+    col = mob['colors'].unique()
+    sen = sorted(mob['sensors'].unique())
+    batt = sorted(mob['battery'].unique())
+
+
+    return render_template('index.html', brands=brands,models=models,gprs=gprs,edge=edge,stats=stats,sim=sim,distype=distype,disres=disres,oss=oss,cpus=cpus,chipsets=chipsets,gpu=gpu,mcard=mcard,inmem=inmem,ram=ram,pcams=pcams,scams=scams,ls=ls,aj=aj,wlan=wlan,blt=blt,gps=gps,nfc=nfc,radio=radio,usb=usb,col=col,sen=sen,batt=batt)
+
+@app1.route('/predict', methods = ['POST'])
+def predict():
+    brands = request.form.get('brands')
+    models = request.form.get('models')
+    gprs = request.form.get('gprs')
+    edge = request.form.get('edge')
+    stats = request.form.get('stats')
+    sim = request.form.get('sim')
+    distype = request.form.get('distype')
+    disres = request.form.get('disres')
+    oss = request.form.get('oss')
+    cpus = request.form.get('cpus')
+    chipsets = request.form.get('chipsets')
+    gpu = request.form.get('gpu')
+    mcard = request.form.get('mcard')
+    inmem = request.form.get('inmem')
+    ram = request.form.get('ram')
+    pcams = request.form.get('pcams')
+    scams = request.form.get('scams')
+    ls = request.form.get('ls')
+    aj = request.form.get('aj')
+    wlan = request.form.get('wlan')
+    blt = request.form.get('blt')
+    gps = request.form.get('gps')
+    nfc = request.form.get('nfc')
+    radio = request.form.get('radio')
+    usb = request.form.get('usb')
+    col = request.form.get('col')
+    sen = request.form.get('sen')
+    batt = request.form.get('batt')
+
+
+    prediction = model.predict(pd.DataFrame([[brands,models,gprs,edge,stats,sim,distype,disres,oss,cpus,chipsets,gpu,mcard,inmem,ram,pcams,scams,ls,aj,wlan,blt,gps,nfc,radio,usb,col,sen,batt]] , columns =['brand','model','GPRS','EDGE','status','SIM','display_type','display_resolution','OS','CPU','Chipset','GPU','memory_card','internal_memory','RAM','primary_camera','secondary_camera','loud_speaker','audio_jack','WLAN','bluetooth','GPS','NFC','radio','USB','colors','sensors','battery']))
+    return str(prediction)
+
+if __name__=="__main__":
+    app1.run(debug=True)
