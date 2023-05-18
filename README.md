@@ -1,7 +1,7 @@
 # Mobile-Phone-Price-Predictor
 ML Project [PYTHON | PANDAS | NUMPY | Scikit-Learn | Matplotlib | Seaborn | HTML | CSS | Flask ]
 
-Mobile Price Predictor is a Machine Learning based website that predicts the price of a Mobile Phone based on various features like (bluetooth version , display , primary camera , secondary camera, GPU, Chipset, processor , battery , etc) . 
+Mobile Price Predictor is a Machine Learning based website that predicts the price of a Mobile Phone(In USD) based on various features like (bluetooth version , display , primary camera , secondary camera, GPU, Chipset, processor , battery , etc) . 
 
 The dataset is highly uncleaned so the project involves following sequence :-
 
